@@ -23,12 +23,12 @@ const handleSocialLoginFailure = (err) => {
 ReactDOM.render(
   <div>
     <SocialButton
-      provider='facebook'
-      appId='290451215328327'
+      provider='google'
+      appId='515002199508-1n4d00fma9to0sjolghkceheguu7ubfg.apps.googleusercontent.com'
       onLoginSuccess={handleSocialLogin}
       onLoginFailure={handleSocialLoginFailure}
     >
-      Login with Facebook
+      Login with Google
     </SocialButton>
   </div>,
   document.getElementById('app')
