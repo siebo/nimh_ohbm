@@ -24,7 +24,7 @@ ReactDOM.render(
   <div>
     <SocialButton
       provider='google'
-      appId='515002199508-1n4d00fma9to0sjolghkceheguu7ubfg.apps.googleusercontent.com'
+      appId='AIzaSyBJefVzvbcJXCsmHw6cCRM3ppMUZdMHpjI'
       onLoginSuccess={handleSocialLogin}
       onLoginFailure={handleSocialLoginFailure}
     >
