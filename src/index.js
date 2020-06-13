@@ -4,7 +4,6 @@ import './index.css';
 import Nav from './Nav';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import SocialButton from './SocialButton'
 
 ReactDOM.render(
   <React.StrictMode>
