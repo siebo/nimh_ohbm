@@ -5,6 +5,7 @@ import SocialButton from './SocialButton'
 
 const handleSocialLogin = (user) => {
   console.log(user)
+  console.log(user.name)
 }
  
 const handleSocialLoginFailure = (err) => {
@@ -23,6 +24,8 @@ function Nav() {
     >
       Login with Google
     </SocialButton>
-  </div>,
+  </div>
   );
 }
+
+export default Nav(Nav);
