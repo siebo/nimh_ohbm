@@ -12,8 +12,9 @@ const handleSocialLoginFailure = (err) => {
 }
 
 
-function Nav() {
-  return (
+class Nav extends React.Component {
+  render() {
+    return (
     <div>
     <SocialButton
       provider='google'
@@ -24,7 +25,8 @@ function Nav() {
       Login with Google
     </SocialButton>
   </div>
-  );
+    );
+  }
 }
 
-export default Nav(Nav);
+export default Nav;
