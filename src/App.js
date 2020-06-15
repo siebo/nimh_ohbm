@@ -97,18 +97,6 @@ function App() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  function linkHome() {
-    history.push("/sharestats");
-  };
-  function linkPIs() {
-    history.push("/sharestats/papers");
-  };
-  function linkOrgs() {
-    history.push("/sharestats/papers");
-  };
-  function linkGraphs() {
-    history.push("/sharestats/graphs");
-  };
   return (
     <div className="App">
 
