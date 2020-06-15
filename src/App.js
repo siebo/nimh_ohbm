@@ -6,8 +6,6 @@ import Graphs from './Graphs';
 import clsx from 'clsx';
 import GoogleBtn from './GoogleBtn';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import AccessibilityIcon from '@material-ui/icons/Accessibility';
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -15,14 +13,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
-import HomeIcon from '@material-ui/icons/Home';
 import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
-import PollIcon from '@material-ui/icons/Poll';
+import NavItems from './NavItems';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {
@@ -161,24 +154,7 @@ function App() {
                 </IconButton>
               </div>
               <Divider />
-              <List>
-                <ListItem button key="Home" onClick={linkHome}>
-                  <ListItemIcon><HomeIcon /></ListItemIcon>
-                  <ListItemText primary="Home" />
-                </ListItem>
-                <ListItem button key="Graphs" onClick={linkGraphs}>
-                  <ListItemIcon><AccessibilityIcon /></ListItemIcon>
-                  <ListItemText primary="Graphs" />
-                </ListItem>
-                <ListItem button key="Institutions" onClick={linkOrgs}>
-                  <ListItemIcon><AccountBalanceIcon /></ListItemIcon>
-                  <ListItemText primary="Institutions" />
-                </ListItem>
-                <ListItem button key="PIs" onClick={linkPIs}>
-                  <ListItemIcon><AccessibilityIcon /></ListItemIcon>
-                  <ListItemText primary="PIs" />
-                </ListItem>
-              </List>
+              <NavItems />
               </Drawer>
 
               <main
