@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Nav from './Nav';
+import GoogleBtn from './GoogleBtn';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Nav />
+    <GoogleBtn/>
   </React.StrictMode>,
   document.getElementById('nav')
 );

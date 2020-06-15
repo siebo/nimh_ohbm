@@ -1,18 +1,21 @@
 import React from 'react';
 import SocialButton from './SocialButton'
 
-
 const handleSocialLogin = (user) => {
-  console.log(user)
-  console.log(user.name)
+  console.log(user);
 }
  
 const handleSocialLoginFailure = (err) => {
-  console.error(err)
+  console.error(err);
 }
 
-
 class Nav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isLoggedIn: false};
+    this.state = {username: ''};
+  }
+
   render() {
     return (
     <div>
