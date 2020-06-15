@@ -9,9 +9,9 @@ import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PollIcon from '@material-ui/icons/Poll';
 import HomeIcon from '@material-ui/icons/Home';
 
-const history = useHistory();
-
 function NavItems() {
+
+  const history = useHistory();
 
   function linkHome() {
     history.push("/sharestats");
