@@ -8,12 +8,6 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
     <GoogleBtn/>
-  </React.StrictMode>,
-  document.getElementById('nav')
-);
-
-ReactDOM.render(
-  <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
