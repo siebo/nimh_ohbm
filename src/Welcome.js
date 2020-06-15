@@ -4,7 +4,7 @@ class Welcome extends React.Component {
 
   render() {
     return (
-    <div>
+    <div className="mainContent">
       <h2>Identifying data sharing and data reuse in full-text NIMH-funded papers</h2>
       <h3>Travis Riddle, Francisco Pereira, &amp; Adam Thomas</h3>
       <p>Identifying and measuring data sharing and data reuse serves a number of goals that are important for scientists, funding agencies, and the public more generally. Consequently, the unmet objective of an efficient and accurate system for identification and tracking of datasets is a conspicuous shortcoming of the larger open science community.</p>
