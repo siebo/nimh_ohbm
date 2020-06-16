@@ -124,7 +124,6 @@ function App() {
                 <Typography variant="h6" noWrap>
                   NIMH OHBM
                 </Typography>
-                <GoogleBtn/>
               </Toolbar>
             </AppBar>
             <Drawer
@@ -140,6 +139,7 @@ function App() {
                 <IconButton onClick={handleDrawerClose}>
                   {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                 </IconButton>
+                <GoogleBtn/>
               </div>
               <Divider />
               <NavItems />
