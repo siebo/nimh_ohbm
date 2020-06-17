@@ -1,8 +1,12 @@
 import React from 'react';
 import './App.css';
 import Welcome from './Welcome';
+import Org from './Org';
 import Orgs from './Orgs';
+import Paper from './Paper';
 import Papers from './Papers';
+import Researcher from './Researcher';
+import Researchers from './Researchers';
 import Graphs from './Graphs';
 import clsx from 'clsx';
 import GoogleBtn from './GoogleBtn';
@@ -153,12 +157,12 @@ function App() {
               >
                 <div className={classes.drawerHeader} />
                 <Switch>
+                  <Route exact path="/sharestats/orgs" component={Orgs} />
+                  <Route exact path="/sharestats/papers" component={Papers} />
+                  <Route exact path="/sharestats/researchers" component={Researchers} />
                   <Route path="/sharestats/orgs/:id?" component={Org} />
                   <Route path="/sharestats/papers/:id?" component={Paper} />
                   <Route path="/sharestats/researchers/:id?" component={Researcher} />
-                  <Route path="/sharestats/orgs" component={Orgs} />
-                  <Route path="/sharestats/papers" component={Papers} />
-                  <Route path="/sharestats/researchers" component={Researchers} />
                   <Route path="/sharestats/graphs" component={Graphs} />
                   <Route path="/sharestats" component={Welcome} />
                 </Switch>
