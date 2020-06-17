@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Welcome from './Welcome';
+import Orgs from './Orgs';
 import Papers from './Papers';
 import Graphs from './Graphs';
 import clsx from 'clsx';
@@ -154,6 +155,9 @@ function App() {
                 <Switch>
                   <Route path="/sharestats/papers">
                     <Papers />
+                  </Route>
+                  <Route path="/sharestats/orgs">
+                    <Orgs />
                   </Route>
                   <Route path="/sharestats/graphs">
                     <Graphs />

@@ -20,7 +20,7 @@ function NavItems() {
     history.push("/sharestats/papers");
   };
   function linkOrgs() {
-    history.push("/sharestats/papers");
+    history.push("/sharestats/orgs");
   };
   function linkGraphs() {
     history.push("/sharestats/graphs");
@@ -40,9 +40,9 @@ function NavItems() {
           <ListItemIcon><AccountBalanceIcon /></ListItemIcon>
           <ListItemText primary="Institutions" />
         </ListItem>
-        <ListItem button key="PIs" onClick={linkPIs}>
+        <ListItem button key="Researchers" onClick={linkPIs}>
           <ListItemIcon><AccessibilityIcon /></ListItemIcon>
-          <ListItemText primary="PIs" />
+          <ListItemText primary="Researchers" />
         </ListItem>
       </List>
     );
