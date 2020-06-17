@@ -3,6 +3,10 @@ import './App.css';
 import axios from "axios";
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import { useDebounce } from "react-use";
 import { useHistory, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,35 +14,34 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Orgs() {
   const [searchString, setSearchstring] = useState("");
-  const [apiBase, apiCall] = useState("https://osaka.o18s.com:9000/orgs/");
-  const [orgs, setResults] = useState([]);
+  const [apiBase, setApiBase] = useState("https://osaka.o18s.com:9000/orgs/");
+  const [apiCall, setApiCall] = useState("https://osaka.o18s.com:9000/orgs/");
+  const [orgs, setOrgs] = useState([]);
   const history = useHistory();
   //const dispatch = useDispatch();
 
   useEffect(() => {
-    this.refreshList();
+    refreshList();
   }, [])
 
   const refreshList = () => {
-      const apiCall = this.state.apiBase.concat("?search=", this.state.setSearchstring);
-      console.log(apiCall);
       axios
         .get(apiCall)
         .then(res => {
-            console.log(res.data.results);
-            const orgs = res.data.results;
-            this.setState({ orgs });
+            const org_list = res.data.results;
+            setOrgs(org_list);
           })
         .catch(err => console.log(err));
   };
 
   const handleSearch = ({ currentTarget: { value } }) => {
     setSearchstring(value);
+    setApiCall( apiBase.concat("?search=", value) );
   };
 
   useDebounce(
     () => {
-      console.log(searchString);
+      refreshList();
     },
     1000,
     [searchString]
@@ -47,17 +50,9 @@ export default function Orgs() {
   return (
     <div className="App">
 
-  		<Typography variant="h2" gutterBottom>
-  		  Institutions
-  		</Typography>
-
-    <Typography variant="h2" gutterBottom>
-      Search by Institution
-    </Typography>
-
-    <Typography variant="body1" gutterBottom>
-      Here you can search for an Organization by name to find their associated paper references in our database.
-      </Typography>
+        <Typography variant="h2" gutterBottom>
+          Search by Institution
+        </Typography>
 
         <TextField
           id="searchtext"
@@ -75,9 +70,13 @@ export default function Orgs() {
           onChange={handleSearch}
         />
 
-      <ul>
-        { this.state.orgs.map(org => <li>{org.organization_name}</li>)}
-      </ul>
+      <List>
+        { orgs.map(org => <Link to={`/sharestats/orgs/${org.organization_name}`}>
+                            <ListItem button>
+                              <ListItemText primary={org.organization_name} />
+                            </ListItem>
+                          </Link>)}
+      </List>
     </div>
   );
 

@@ -17,7 +17,7 @@ function NavItems() {
     history.push("/sharestats");
   };
   function linkPIs() {
-    history.push("/sharestats/papers");
+    history.push("/sharestats/researchers");
   };
   function linkOrgs() {
     history.push("/sharestats/orgs");
