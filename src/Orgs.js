@@ -2,17 +2,14 @@ import React from 'react';
 import './App.css';
 import axios from "axios";
 import Typography from '@material-ui/core/Typography';
+import { useDebounce } from "react-use";
+import { useHistory, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-class Orgs extends React.Component {
-
-    constructor(props) {
-    super(props);
-
-    this.state = {
-      orgs: [],
-    };
-
-  }
+export default function Orgs() {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const [results, setResults] = useState([]);
 
   componentDidMount() {
       this.refreshList();
@@ -23,8 +20,8 @@ class Orgs extends React.Component {
         .get("https://osaka.o18s.com:9000/orgs/")
         .then(res => {
             console.log(res.data.results);
-            const persons = res.data.results;
-            this.setState({ persons });
+            const orgs = res.data.results;
+            this.setState({ orgs });
           })
         .catch(err => console.log(err));
   };

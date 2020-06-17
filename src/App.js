@@ -153,18 +153,14 @@ function App() {
               >
                 <div className={classes.drawerHeader} />
                 <Switch>
-                  <Route path="/sharestats/papers">
-                    <Papers />
-                  </Route>
-                  <Route path="/sharestats/orgs">
-                    <Orgs />
-                  </Route>
-                  <Route path="/sharestats/graphs">
-                    <Graphs />
-                  </Route>
-                  <Route path="/sharestats">
-                    <Welcome />
-                  </Route>
+                  <Route path="/sharestats/orgs/:id?" component={Org} />
+                  <Route path="/sharestats/papers/:id?" component={Paper} />
+                  <Route path="/sharestats/researchers/:id?" component={Researcher} />
+                  <Route path="/sharestats/orgs" component={Orgs} />
+                  <Route path="/sharestats/papers" component={Papers} />
+                  <Route path="/sharestats/researchers" component={Researchers} />
+                  <Route path="/sharestats/graphs" component={Graphs} />
+                  <Route path="/sharestats" component={Welcome} />
                 </Switch>
               </main>
 
