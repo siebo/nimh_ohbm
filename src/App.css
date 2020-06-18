@@ -7,6 +7,15 @@
   pointer-events: none;
 }
 
+.MuiBox-root div {
+  margin-top: 24px;
+}
+
+.MuiList-root a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
