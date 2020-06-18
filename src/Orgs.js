@@ -18,7 +18,6 @@ export default function Orgs() {
   const [apiCall, setApiCall] = useState("https://osaka.o18s.com:9000/orgs/");
   const [orgs, setOrgs] = useState([]);
   const history = useHistory();
-  //const dispatch = useDispatch();
 
   useEffect(() => {
     refreshList();
