@@ -20,6 +20,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Switch from '@material-ui/core/Switch';
+import Button from '@material-ui/core/Button';
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -96,20 +98,26 @@ function Article() {
                   <TableRow>
                     <TableCell align="right">Data sharing:</TableCell>
                     <TableCell align="left">
-                    <select value={dataShare} onChange={handleChangeDataShare}>
-                      <option value="FALSE">No Data Sharing</option>
-                      <option value="TRUE">Data Sharing</option>
-                    </select>
+                      <Switch
+                        checked={dataShare}
+                        onChange={handleChangeDataShare}
+                        color="primary"
+                        name="dataShare"
+                        inputProps={{ 'aria-label': 'primary checkbox' }}
+                      />
                     </TableCell>
                   </TableRow>
 
                   <TableRow>
                     <TableCell align="right">Data reuse:</TableCell>
                     <TableCell align="left">
-                    <select value={dataReuse} onChange={handleChangeDataReuse}>
-                      <option value="FALSE">No Data Reuse</option>
-                      <option value="TRUE">Data Reuse</option>
-                    </select>
+                      <Switch
+                        checked={dataReuse}
+                        onChange={handleChangeDataReuse}
+                        color="primary"
+                        name="dataReuse"
+                        inputProps={{ 'aria-label': 'primary checkbox' }}
+                      />
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -120,7 +128,11 @@ function Article() {
                   </TableRow>
 
                   <TableRow>
-                    <TableCell align="right"><input type="submit" value="Submit" /></TableCell>
+                    <TableCell align="right">
+                      <Button variant="contained" color="primary" onClick={handleSubmit}>
+                        Save
+                      </Button>
+                    </TableCell>
                     <TableCell align="left">
 
                     </TableCell>
