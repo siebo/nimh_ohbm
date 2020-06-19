@@ -85,51 +85,51 @@ function Article() {
       <Box className={classes.paper}>
         { papers.map(paper => <div>
 
-	      <Typography variant="h5" gutterBottom>{paper.title}</Typography>
-	      <Typography variant="h6" gutterBottom>{paper.journal_title} - {paper.journal_year}</Typography>
+        <Typography variant="h5" gutterBottom>Edit Data Policy: {paper.title}</Typography>
+        <Typography variant="h6" gutterBottom>{paper.journal_title} - {paper.journal_year}</Typography>
 
-			<form onSubmit={handleSubmit}>
-			    <TableContainer component={Paper}>
-			      <Table className={classes.table} aria-label="simple table">
-			        <TableBody>
+      <form onSubmit={handleSubmit}>
+          <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="simple table">
+              <TableBody>
 
-			            <TableRow>
-			              <TableCell align="right">Data sharing:</TableCell>
-			              <TableCell align="left">
-					          <select value={dataShare} onChange={handleChangeDataShare}>
-					            <option value="FALSE">No Data Sharing</option>
-					            <option value="TRUE">Data Sharing</option>
-					          </select>
-			              </TableCell>
-			            </TableRow>
+                  <TableRow>
+                    <TableCell align="right">Data sharing:</TableCell>
+                    <TableCell align="left">
+                    <select value={dataShare} onChange={handleChangeDataShare}>
+                      <option value="FALSE">No Data Sharing</option>
+                      <option value="TRUE">Data Sharing</option>
+                    </select>
+                    </TableCell>
+                  </TableRow>
 
-			            <TableRow>
-			              <TableCell align="right">Data reuse:</TableCell>
-			              <TableCell align="left">
-					          <select value={dataReuse} onChange={handleChangeDataReuse}>
-					            <option value="FALSE">No Data Reuse</option>
-					            <option value="TRUE">Data Reuse</option>
-					          </select>
-			              </TableCell>
-			            </TableRow>
-			            <TableRow>
-			              <TableCell align="right">Notes:</TableCell>
-			              <TableCell align="left">
-					        <textarea value={notes} onChange={handleChangeNotes} />
-			              </TableCell>
-			            </TableRow>
+                  <TableRow>
+                    <TableCell align="right">Data reuse:</TableCell>
+                    <TableCell align="left">
+                    <select value={dataReuse} onChange={handleChangeDataReuse}>
+                      <option value="FALSE">No Data Reuse</option>
+                      <option value="TRUE">Data Reuse</option>
+                    </select>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="right">Notes:</TableCell>
+                    <TableCell align="left">
+                  <textarea value={notes} onChange={handleChangeNotes} />
+                    </TableCell>
+                  </TableRow>
 
-			            <TableRow>
-			              <TableCell align="right"><input type="submit" value="Submit" /></TableCell>
-			              <TableCell align="left">
+                  <TableRow>
+                    <TableCell align="right"><input type="submit" value="Submit" /></TableCell>
+                    <TableCell align="left">
 
-			              </TableCell>
-			            </TableRow>
+                    </TableCell>
+                  </TableRow>
 
-			        </TableBody>
-			      </Table>
-			    </TableContainer>
-			</form>
+              </TableBody>
+            </Table>
+          </TableContainer>
+      </form>
 
         </div>)}
       </Box>

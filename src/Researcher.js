@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 	paper: {
 	  marginTop: '24px',
 	},
-    
+
 }));
 
 function Researcher() {
@@ -74,6 +74,9 @@ function Researcher() {
 		      />
 	          { paper.open_data == 'TRUE' ? <Chip size="small" label="Data sharing" icon={<DoneIcon />} color="primary"/>  : <Chip size="small" label="Data sharing" icon={<BlockIcon />} color="default"/>  }
               { paper.data_share == 'TRUE' ? <Chip size="small" label="Data reuse" icon={<DoneIcon />} color="primary"/>  : <Chip size="small" label="Data reuse" icon={<BlockIcon />} color="default"/>  }
+	          <Link to={`/sharestats/papers/${paper.id}`}>
+	            <Chip size="small" label="Edit" icon={<EditIcon />} color="secondary"/>
+	          </Link>
           </div>
         )}
       </Box>
