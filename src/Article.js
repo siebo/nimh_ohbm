@@ -94,7 +94,8 @@ function Article() {
       <Box className={classes.paper}>
         { papers.map(paper => <div>
 
-        <Typography variant="h5" gutterBottom>Edit Data Policy: {paper.title}</Typography>
+        <Typography variant="h4" gutterBottom>Edit Data Policy:</Typography>
+        <Typography variant="h5" gutterBottom>{paper.title}</Typography>
         <Typography variant="h6" gutterBottom>{paper.journal_title} - {paper.journal_year}</Typography>
 
           <Box>
@@ -152,6 +153,7 @@ function Article() {
                         multiline
                         rows={4}
                         defaultValue=""
+                        helperText="Please copy and paste the sentence(s) from the PMC version of the paper that indicate the paper provided or made use of shared data"
                         variant="filled"
                       />
                     </TableCell>
