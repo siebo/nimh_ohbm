@@ -1,24 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Typography from '@material-ui/core/Typography';
-import { useParams, useHistory, Link  } from 'react-router-dom'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import { useParams, useHistory  } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Chip from '@material-ui/core/Chip';
-import green from '@material-ui/core/colors/green';
-import deepOrange from '@material-ui/core/colors/deepOrange';
-import DoneIcon from '@material-ui/icons/Done';
-import BlockIcon from '@material-ui/icons/Block';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
 import LinkIcon from '@material-ui/icons/Link';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Switch from '@material-ui/core/Switch';
@@ -52,7 +43,6 @@ function Article() {
   const [dataReuse, setDataReuse] = useState("");
   const [notes, setNotes] = useState("");
   const apiCall = "https://osaka.o18s.com:9000/projectpapers/".concat("?id=", id)
-  const history = useHistory();
 
   useEffect(() => {
     refreshList();

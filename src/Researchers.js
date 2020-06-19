@@ -5,11 +5,9 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { useDebounce } from "react-use";
 import { useHistory, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 
 
 export default function Researchers() {
@@ -17,7 +15,6 @@ export default function Researchers() {
   const [apiBase, setApiBase] = useState("https://osaka.o18s.com:9000/people/");
   const [apiCall, setApiCall] = useState("https://osaka.o18s.com:9000/people/");
   const [researchers, setResearchers] = useState([]);
-  const history = useHistory();
 
   useEffect(() => {
     refreshList();

@@ -12,7 +12,6 @@ import clsx from 'clsx';
 import GoogleBtn from './GoogleBtn';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -23,13 +22,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import NavItems from './NavItems';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  useHistory
+  Route
 } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -96,7 +92,6 @@ function App() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const history = useHistory();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -177,12 +172,7 @@ function App() {
 
         </div>
       </Router>
-      <BottomNavigation>
-        <Typography variant="body2" gutterBottom>Questions / Feedback? Send a DM to 
-          <a onClick={()=> window.open("https://twitter.com/damadam", "_blank")}>@damadam</a> 
-          on twitter
-        </Typography>
-      </BottomNavigation>
+
     </div>
   );
 }

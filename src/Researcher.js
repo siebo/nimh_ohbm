@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Typography from '@material-ui/core/Typography';
-import { useParams, useHistory, Link  } from 'react-router-dom'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import { useParams, useHistory  } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Chip from '@material-ui/core/Chip';

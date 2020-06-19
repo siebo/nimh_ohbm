@@ -6,7 +6,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import PollIcon from '@material-ui/icons/Poll';
 import HomeIcon from '@material-ui/icons/Home';
 
 function NavItems() {
