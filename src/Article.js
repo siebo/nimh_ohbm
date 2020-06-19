@@ -13,6 +13,7 @@ import deepOrange from '@material-ui/core/colors/deepOrange';
 import DoneIcon from '@material-ui/icons/Done';
 import BlockIcon from '@material-ui/icons/Block';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
+import LinkIcon from '@material-ui/icons/Link';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -96,6 +97,19 @@ function Article() {
         <Typography variant="h5" gutterBottom>Edit Data Policy: {paper.title}</Typography>
         <Typography variant="h6" gutterBottom>{paper.journal_title} - {paper.journal_year}</Typography>
 
+          <Box>
+            <Chip
+              label="Pub Med"
+              icon={<LinkIcon />}
+              onClick={()=> window.open("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC".concat("", paper.pmcid), "_blank")}
+            />
+            <Chip
+              label="doi.org"
+              icon={<LinkIcon />}
+              onClick={()=> window.open("https://doi.org/".concat("", paper.doi), "_blank")}
+            />
+          </Box>
+
       <form onSubmit={handleSubmit}>
           <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
@@ -131,7 +145,7 @@ function Article() {
                     <TableCell align="left">
                       <TextField
                         id="filled-multiline-static"
-                        label="Notes"
+                        label="Data Sharing Statement"
                         fullWidth
                         onChange={handleChangeNotes}
                         name="notes"

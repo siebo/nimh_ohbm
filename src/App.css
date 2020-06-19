@@ -7,8 +7,12 @@
   pointer-events: none;
 }
 
-.MuiBox-root h5 {
-  margin-top: 28px;
+.App .MuiPaper-root {
+  margin-bottom: 12px;
+}
+
+.App .MuiPaper-rounded {
+  padding: 6px 12px;
 }
 
 .MuiChip-root {
