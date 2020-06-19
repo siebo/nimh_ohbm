@@ -15,6 +15,7 @@ import BlockIcon from '@material-ui/icons/Block';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import EditIcon from '@material-ui/icons/Edit';
 import LinkIcon from '@material-ui/icons/Link';
+import Paper from '@material-ui/core/Paper';
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -61,7 +62,7 @@ function Researcher() {
 		</Typography>
 
       <Box className={classes.paper}>
-        { papers.map(paper => <div>
+        { papers.map(paper => <Paper fullWidth>
           <Typography variant="h5">{paper.title}</Typography>
           <Typography variant="h6" gutterBottom>{paper.journal_title} - {paper.journal_year}</Typography>
           <Box>
@@ -96,7 +97,7 @@ function Researcher() {
                   icon={<EditIcon />} 
                   variant="outlined"
             />
-          </div>
+          </Paper>
         )}
       </Box>
 
