@@ -22,6 +22,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -62,6 +63,8 @@ function Article() {
         .then(res => {
             const paper_list = res.data.results;
             setPapers(paper_list);
+            setDataShare(paper_list[0].data_share == 'TRUE' ? true : false);
+            setDataReuse(paper_list[0].open_data == 'TRUE' ? true : false);
           })
         .catch(err => console.log(err));
   };
@@ -69,14 +72,17 @@ function Article() {
 
   function handleSubmit(event) {
     alert('Your edits have been saved'.concat(" Share: ", dataShare));
+    console.log(papers);
+    console.log(dataShare);
+    console.log(dataReuse);
     event.preventDefault();
   }
 
   function handleChangeDataShare(event) {
-    setDataShare(event.target.value);
+    setDataShare((prev) => !prev);
   }
   function handleChangeDataReuse(event) {
-    setDataReuse(event.target.value);
+    setDataReuse((prev) => !prev);
   }
   function handleChangeNotes(event) {
     setNotes(event.target.value);
@@ -121,9 +127,19 @@ function Article() {
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell align="right">Notes:</TableCell>
+                    <TableCell align="right"></TableCell>
                     <TableCell align="left">
-                  <textarea value={notes} onChange={handleChangeNotes} />
+                      <TextField
+                        id="filled-multiline-static"
+                        label="Notes"
+                        fullWidth
+                        onChange={handleChangeNotes}
+                        name="notes"
+                        multiline
+                        rows={4}
+                        defaultValue=""
+                        variant="filled"
+                      />
                     </TableCell>
                   </TableRow>
 
