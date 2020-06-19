@@ -3,7 +3,7 @@ import './App.css';
 import Welcome from './Welcome';
 import Org from './Org';
 import Orgs from './Orgs';
-import Paper from './Paper';
+import Article from './Article';
 import Papers from './Papers';
 import Researcher from './Researcher';
 import Researchers from './Researchers';
@@ -161,7 +161,7 @@ function App() {
                   <Route exact path="/sharestats/papers" component={Papers} />
                   <Route exact path="/sharestats/researchers" component={Researchers} />
                   <Route path="/sharestats/orgs/:id?" component={Org} />
-                  <Route path="/sharestats/papers/:id?" component={Paper} />
+                  <Route path="/sharestats/papers/:id?" component={Article} />
                   <Route path="/sharestats/researchers/:id?" component={Researcher} />
                   <Route path="/sharestats/graphs" component={Graphs} />
                   <Route path="/sharestats" component={Welcome} />

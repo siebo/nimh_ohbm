@@ -13,6 +13,7 @@ import deepOrange from '@material-ui/core/colors/deepOrange';
 import DoneIcon from '@material-ui/icons/Done';
 import BlockIcon from '@material-ui/icons/Block';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
+import EditIcon from '@material-ui/icons/Edit';
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -61,18 +62,23 @@ function Org() {
         { papers.map(paper => <div>
           <Typography variant="h5" gutterBottom>{paper.title}</Typography>
           <Typography variant="h6" gutterBottom>{paper.journal_title} - {paper.journal_year}</Typography>
-          <Chip
-	        label={`DOI: ${paper.doi}`}
-	        onClick={()=> window.open("https://doi.org/".concat("", paper.doi), "_blank")}
-	        variant="outlined"
-	      />
-          <Chip
-	        label={`PMCID: ${paper.pmcid}`}
-	        onClick={()=> window.open("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC".concat("", paper.pmcid), "_blank")}
-	        variant="outlined"
-	      />
+          <Box>
+	          <Chip
+		        label={`DOI: ${paper.doi}`}
+		        onClick={()=> window.open("https://doi.org/".concat("", paper.doi), "_blank")}
+		        variant="outlined"
+		      />
+	          <Chip
+		        label={`PMCID: ${paper.pmcid}`}
+		        onClick={()=> window.open("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC".concat("", paper.pmcid), "_blank")}
+		        variant="outlined"
+		      />
+	      </Box>
 	      { paper.open_data == 'TRUE' ? <Chip size="small" label="Data sharing" icon={<DoneIcon />} color="primary"/>  : <Chip size="small" label="Data sharing" icon={<BlockIcon />} color="default"/>  }
 	      { paper.data_share == 'TRUE' ? <Chip size="small" label="Data reuse" icon={<DoneIcon />} color="primary"/>  : <Chip size="small" label="Data reuse" icon={<BlockIcon />} color="default"/>  }
+          <Link to={`/sharestats/papers/${paper.id}`}>
+            <Chip size="small" label="Edit" icon={<EditIcon />} color="secondary"/>
+          </Link>
           </div>
         )}
       </Box>

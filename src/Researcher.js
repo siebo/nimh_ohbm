@@ -16,18 +16,19 @@ import FileCopyIcon from '@material-ui/icons/FileCopy';
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(0.5),
-    },
+	root: {
+	display: 'flex',
+	justifyContent: 'center',
+	flexWrap: 'wrap',
+	'& > *': {
+	  margin: theme.spacing(0.5),
+	},
+	},
 
-  paper: {
-      marginTop: '24px',
-    },
-  },
+	paper: {
+	  marginTop: '24px',
+	},
+    
 }));
 
 function Researcher() {
