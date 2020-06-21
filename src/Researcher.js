@@ -35,7 +35,7 @@ function Researcher() {
   const {id} = useParams();
   const [papers, setPapers] = useState([]);
   const [personName, setPersonName] = useState("");
-  const apiCall= "https://osaka.o18s.com:9000/projectpapers/".concat("?pi_id=", id)
+  const apiCall= "https://osaka.o18s.com:9000/personArticles/".concat("?pi_id=", id)
   const history = useHistory();
 
   useEffect(() => {
