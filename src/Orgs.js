@@ -67,7 +67,7 @@ export default function Orgs() {
         />
 
       <List>
-        { orgs.map(org => <Link to={`/sharestats/orgs/${org.organization_name}`}>
+        { orgs.map(org => <Link to={`/sharestats/orgs/${org.id}`}>
                             <ListItem button>
                               <ListItemText primary={org.organization_name} />
                             </ListItem>

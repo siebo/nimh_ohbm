@@ -27,8 +27,10 @@ class GoogleBtn extends Component {
       this.setState(state => ({
         isLoggeded: true,
         accessToken: response.accessToken,
-        fullname: response.Tt.Bd,
-        email: response.Tt.Du
+        fullname: response.profileObj.name,
+        email: response.profileObj.email,
+        givenName: response.profileObj.givenName,
+        imageUrl: response.profileObj.imageUrl
       }));
     }
   }

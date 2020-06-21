@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
 function Org() {
   const {id} = useParams();
   const [papers, setPapers] = useState([]);
-  const apiCall = "https://osaka.o18s.com:9000/projectpapers/".concat("?organization_name=", id)
+  const [orgName, setOrgName] = useState("");
+  const apiCall = "https://osaka.o18s.com:9000/orgArticles/".concat("?org_id=", id)
   const history = useHistory();
 
   useEffect(() => {
@@ -42,6 +43,7 @@ function Org() {
       axios
         .get(apiCall)
         .then(res => {
+            setOrgName(res.data.results[0].organization_name);
             const paper_list = res.data.results;
             setPapers(paper_list);
           })
@@ -52,7 +54,7 @@ function Org() {
     <div className="App">
 
 		<Typography variant="h4" gutterBottom>
-		  {id}
+		  {orgName}
 		</Typography>
 
       <Box className={classes.paper}>

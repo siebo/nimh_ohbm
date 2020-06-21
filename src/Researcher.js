@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
 function Researcher() {
   const {id} = useParams();
   const [papers, setPapers] = useState([]);
-  const apiCall= "https://osaka.o18s.com:9000/projectpapers/".concat("?contact_pi_project_leader=", id)
+  const [personName, setPersonName] = useState("");
+  const apiCall= "https://osaka.o18s.com:9000/projectpapers/".concat("?pi_id=", id)
   const history = useHistory();
 
   useEffect(() => {
@@ -45,6 +46,7 @@ function Researcher() {
       axios
         .get(apiCall)
         .then(res => {
+            setPersonName(res.data.results[0].contact_pi_project_leader);
             const paper_list = res.data.results;
             setPapers(paper_list);
           })
@@ -55,7 +57,7 @@ function Researcher() {
     <div className="App">
 
 		<Typography variant="h4" gutterBottom>
-		  {id}
+		  {personName}
 		</Typography>
 
       <Box className={classes.paper}>

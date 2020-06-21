@@ -67,7 +67,7 @@ export default function Researchers() {
         />
 
       <List>
-        { researchers.map(researcher => <Link to={`/sharestats/researchers/${researcher.full_name}`}>
+        { researchers.map(researcher => <Link to={`/sharestats/researchers/${researcher.id}`}>
                             <ListItem button>
                               <ListItemText primary={researcher.full_name} />
                             </ListItem>
