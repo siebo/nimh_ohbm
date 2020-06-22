@@ -6,6 +6,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
 import HomeIcon from '@material-ui/icons/Home';
 
 function NavItems() {
@@ -32,7 +33,7 @@ function NavItems() {
           <ListItemText primary="Home" />
         </ListItem>
         <ListItem button key="Graphs" onClick={linkGraphs}>
-          <ListItemIcon><AccessibilityIcon /></ListItemIcon>
+          <ListItemIcon><AssessmentOutlinedIcon /></ListItemIcon>
           <ListItemText primary="Graphs" />
         </ListItem>
         <ListItem button key="Institutions" onClick={linkOrgs}>
