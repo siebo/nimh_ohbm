@@ -88,7 +88,7 @@ function Org() {
 	      { paper.data_share == 'TRUE' ? <Chip size="small" label="Data sharing" icon={<DoneIcon />} color="primary"/>  : <Chip size="small" label="Data sharing" icon={<BlockIcon />} color="secondary"/>  }
 	      { paper.open_data == 'TRUE' ? <Chip size="small" label="Data reuse" icon={<DoneIcon />} color="primary"/>  : <Chip size="small" label="Data reuse" icon={<BlockIcon />} color="secondary"/>  }
             <Chip size="small" 
-                  onClick={()=> history.push(`/sharestats/papers/${paper.id}`)}
+                  onClick={()=> history.push(`/sharestats/papers/${paper.pmcid}`)}
                   label="edit"
                   icon={<EditIcon />} 
                   variant="outlined"

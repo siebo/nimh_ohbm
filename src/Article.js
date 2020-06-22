@@ -42,7 +42,7 @@ function Article() {
   const [dataShare, setDataShare] = useState("");
   const [dataReuse, setDataReuse] = useState("");
   const [notes, setNotes] = useState("");
-  const apiCall = "https://osaka.o18s.com:9000/projectpapers/".concat("?id=", id)
+  const apiCall = "https://osaka.o18s.com:9000/articles/".concat("?pmcid=", id)
 
   useEffect(() => {
     refreshList();
@@ -54,8 +54,8 @@ function Article() {
         .then(res => {
             const paper_list = res.data.results;
             setPapers(paper_list);
-            setDataShare(paper_list[0].data_share == 'TRUE' ? true : false);
-            setDataReuse(paper_list[0].open_data == 'TRUE' ? true : false);
+            setDataShare(paper_list[0].int_data_share == 1 ? true : false);
+            setDataReuse(paper_list[0].int_open_data == 1 ? true : false);
           })
         .catch(err => console.log(err));
   };
