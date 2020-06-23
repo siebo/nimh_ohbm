@@ -13,6 +13,7 @@ import FileCopyIcon from '@material-ui/icons/FileCopy';
 import EditIcon from '@material-ui/icons/Edit';
 import LinkIcon from '@material-ui/icons/Link';
 import Paper from '@material-ui/core/Paper';
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -70,23 +71,25 @@ function Researcher() {
               icon={<LinkIcon />}
               onClick={()=> window.open("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC".concat("", paper.pmcid), "_blank")}
             />
-            <Chip
-              label={`PMCID: ${paper.pmcid}`}
-              icon={<FileCopyIcon />}
-              onClick={()=> window.open("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC".concat("", paper.pmcid), "_blank")}
-              variant="outlined"
-            />
+            <CopyToClipboard text={paper.pmcid}>
+              <Chip
+                label={`PMCID: ${paper.pmcid}`}
+                icon={<FileCopyIcon />}
+                variant="outlined"
+              />
+            </CopyToClipboard>
             <Chip
               label="doi.org"
               icon={<LinkIcon />}
               onClick={()=> window.open("https://doi.org/".concat("", paper.doi), "_blank")}
             />
-	          <Chip
-  		        label={`DOI: ${paper.doi}`}
-              icon={<FileCopyIcon />}
-  		        onClick={()=> window.open("https://doi.org/".concat("", paper.doi), "_blank")}
-  		        variant="outlined"
-  		      />
+            <CopyToClipboard text={paper.doi}>
+  	          <Chip
+    		        label={`DOI: ${paper.doi}`}
+                icon={<FileCopyIcon />}
+    		        variant="outlined"
+    		      />
+            </CopyToClipboard>
 	        </Box>
 	      { paper.data_share == 'TRUE' ? <Chip size="small" label="Data sharing" icon={<DoneIcon />} color="primary"/>  : <Chip size="small" label="Data sharing" icon={<BlockIcon />} color="secondary"/>  }
 	      { paper.open_data == 'TRUE' ? <Chip size="small" label="Data reuse" icon={<DoneIcon />} color="primary"/>  : <Chip size="small" label="Data reuse" icon={<BlockIcon />} color="secondary"/>  }
