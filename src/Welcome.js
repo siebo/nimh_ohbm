@@ -14,7 +14,7 @@ class Welcome extends React.Component {
 
       <p>Look for papers by institution, or by investigators using the menu tray at the top left. Note that investigators and institutions are determined by the grant associated with a paper, so there will almost certainly be many other authors and institutions on a paper who are not represented in these data.</p>
 
-      <p><a href="https://github.com/nih-fmrif/sharestats/blob/master/README.md">Feedback and Frequently Asked Questions></a></p>
+      <p><a href="https://github.com/nih-fmrif/sharestats/blob/master/README.md">Feedback and Frequently Asked Questions</a></p>
     </div>
     );
   }
