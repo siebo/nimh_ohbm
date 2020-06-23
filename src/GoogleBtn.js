@@ -1,80 +1,67 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { useDispatch, useSelector, connect } from "react-redux";
 
+import {} from "react-router";
+import { login, logout } from "./store/actions/user";
 
-const CLIENT_ID = '515002199508-1n4d00fma9to0sjolghkceheguu7ubfg.apps.googleusercontent.com';
+function GoogleBtn() {
 
+  const CLIENT_ID = '515002199508-1n4d00fma9to0sjolghkceheguu7ubfg.apps.googleusercontent.com';
+  const dispatch = useDispatch();
+  const [isAuthed, setIsAuthed] = useState(0);
 
-class GoogleBtn extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLoggeded: false,
-      accessToken: '',
-      fullname: '',
-      email: ''
-    };
-
-    this.login = this.login.bind(this);
-    this.handleLoginFailure = this.handleLoginFailure.bind(this);
-    this.logout = this.logout.bind(this);
-    this.handleLogoutFailure = this.handleLogoutFailure.bind(this);
-  }
-
-  login (response) {
-    if(response.accessToken){
-      this.setState(state => ({
-        isLoggeded: true,
-        accessToken: response.accessToken,
+  function handleLogin (response) {
+    console.log('doing login');
+    if(response.accessToken)
+      setIsAuthed(1);
+      dispatch(login({
+        isAuthed: true,
         fullname: response.profileObj.name,
-        email: response.profileObj.email,
-        givenName: response.profileObj.givenName,
-        imageUrl: response.profileObj.imageUrl
-      }));
-    }
+        email: response.profileObj.email
+      }))
   }
 
-  logout (response) {
-    this.setState(state => ({
-      isLoggeded: false,
-      accessToken: '',
-      fullname: '',
-      email: ''
-    }));
+  function handleLogout (response) {
+      console.log('doing login');
+      setIsAuthed(1);
+      dispatch(logout({
+        isAuthed: false,
+        fullname: '',
+        email: ''
+      }))
   }
 
-  handleLoginFailure (response) {
+  function handleLoginFailure (response) {
     alert('Failed to log in')
   }
 
-  handleLogoutFailure (response) {
+  function handleLogoutFailure (response) {
     alert('Failed to log out')
   }
 
-  render() {
+
     return (
     <div>
-      { this.state.isLoggeded ?
+      { isAuthed ?
         <GoogleLogout
           clientId={ CLIENT_ID }
           buttonText='Logout'
-          onLogoutSuccess={ this.logout }
-          onFailure={ this.handleLogoutFailure }
+          onLogoutSuccess={ handleLogout }
+          onFailure={ handleLogoutFailure }
         >
         </GoogleLogout>: <GoogleLogin
           clientId={CLIENT_ID}
           buttonText='Login'
-          onSuccess={ this.login }
-          onFailure={ this.handleLoginFailure }
+          onSuccess={ handleLogin }
+          onFailure={ handleLoginFailure }
           cookiePolicy={ 'single_host_origin' }
           responseType='code,token'
         />
       }
-
     </div>
-    )
-  }
+    );
+
 }
 
 export default GoogleBtn;

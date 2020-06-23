@@ -15,6 +15,7 @@ import Paper from '@material-ui/core/Paper';
 import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +43,7 @@ function Article() {
   const [dataShare, setDataShare] = useState("");
   const [dataReuse, setDataReuse] = useState("");
   const [notes, setNotes] = useState("");
+  const user = useSelector(({ user }) => user);
   const apiCall = "https://osaka.o18s.com:9000/articles/".concat("?pmcid=", id)
 
   useEffect(() => {
@@ -62,10 +64,20 @@ function Article() {
   const classes = useStyles();
 
   function handleSubmit(event) {
-    alert('Your edits have been saved'.concat(" Share: ", dataShare));
-    console.log(papers);
-    console.log(dataShare);
-    console.log(dataReuse);
+    axios.post('https://osaka.o18s.com:9000/articleupdates/', {
+                pmcid: id,
+                open_data: dataReuse == true ? "TRUE" : "FALSE",
+                data_share: dataShare == true ? "TRUE" : "FALSE",
+                data_statement: notes,
+                edit_user: user.email
+              })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+    });
+    alert('Your changes have been added to our review queue.');
     event.preventDefault();
   }
 
