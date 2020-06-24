@@ -12,6 +12,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import LinkIcon from '@material-ui/icons/Link';
 import Paper from '@material-ui/core/Paper';
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +36,7 @@ function Org() {
   const [orgName, setOrgName] = useState("");
   const apiCall = "https://osaka.o18s.com:9000/orgArticles/".concat("?org_id=", id)
   const history = useHistory();
+  const user = useSelector(({ user }) => user);
 
   useEffect(() => {
     refreshList();
@@ -91,12 +93,21 @@ function Org() {
 	        </Box>
 	      { paper.data_share == 'TRUE' ? <Chip size="small" label="Data sharing" icon={<DoneIcon />} color="primary"/>  : <Chip size="small" label="Data sharing" icon={<BlockIcon />} color="secondary"/>  }
 	      { paper.open_data == 'TRUE' ? <Chip size="small" label="Data reuse" icon={<DoneIcon />} color="primary"/>  : <Chip size="small" label="Data reuse" icon={<BlockIcon />} color="secondary"/>  }
+
+           { user.isAuthed == true ? 
             <Chip size="small" 
                   onClick={()=> history.push(`/sharestats/papers/${paper.pmcid}`)}
                   label="edit"
                   icon={<EditIcon />} 
                   variant="outlined"
-            />
+            /> :
+            <Chip size="small" 
+                  label="login to edit"
+                  icon={<EditIcon />} 
+                  variant="outlined"
+            /> 
+          }
+
           </Paper>
         )}
       </Box>
