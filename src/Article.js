@@ -69,6 +69,7 @@ function Article() {
                 open_data: dataReuse == true ? "TRUE" : "FALSE",
                 data_share: dataShare == true ? "TRUE" : "FALSE",
                 data_statement: notes,
+                is_merged: false,
                 edit_user: user.email
               })
           .then(function (response) {
