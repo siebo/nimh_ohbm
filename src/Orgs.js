@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Chip from '@material-ui/core/Chip';
+import GradeIcon from '@material-ui/icons/Grade';
+import DescriptionIcon from '@material-ui/icons/Description';
 import { useDebounce } from "react-use";
 import { useHistory, Link } from "react-router-dom";
 
@@ -70,6 +73,14 @@ export default function Orgs() {
         { orgs.map(org => <Link to={`/sharestats/orgs/${org.id}`}>
                             <ListItem button>
                               <ListItemText primary={org.organization_name} />
+                                <Chip
+                                  label={org.count_total_pubs}
+                                  icon={<DescriptionIcon />}
+                                />
+                                <Chip
+                                  label={org.data_score.toFixed(3)}
+                                  icon={<GradeIcon />}
+                                />
                             </ListItem>
                           </Link>)}
       </List>
