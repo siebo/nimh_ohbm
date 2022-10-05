@@ -7,6 +7,7 @@ import Article from './Article';
 import Papers from './Papers';
 import Researcher from './Researcher';
 import Researchers from './Researchers';
+import ResearchersIRP from './ResearchersIRP';
 import Graphs from './Graphs';
 import GraphRes from './GraphRes';
 import clsx from 'clsx';
@@ -157,6 +158,7 @@ function App() {
                   <Route exact path="/sharestats/orgs" component={Orgs} />
                   <Route exact path="/sharestats/papers" component={Papers} />
                   <Route exact path="/sharestats/researchers" component={Researchers} />
+                  <Route exact path="/sharestats/irp-researchers" component={ResearchersIRP} />
                   <Route path="/sharestats/orgs/:id?" component={Org} />
                   <Route path="/sharestats/papers/:id?" component={Article} />
                   <Route path="/sharestats/researchers/:id?" component={Researcher} />

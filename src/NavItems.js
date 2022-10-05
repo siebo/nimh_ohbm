@@ -19,6 +19,9 @@ function NavItems() {
   function linkPIs() {
     history.push("/sharestats/researchers");
   };
+  function linkPIsIRP() {
+    history.push("/sharestats/irp-researchers");
+  };
   function linkOrgs() {
     history.push("/sharestats/orgs");
   };
@@ -43,6 +46,10 @@ function NavItems() {
         <ListItem button key="Researchers" onClick={linkPIs}>
           <ListItemIcon><AccessibilityIcon /></ListItemIcon>
           <ListItemText primary="Researchers" />
+        </ListItem>
+        <ListItem button key="ResearchersIRP" onClick={linkPIsIRP}>
+          <ListItemIcon><AccessibilityIcon /></ListItemIcon>
+          <ListItemText primary="IRP Researchers" />
         </ListItem>
       </List>
     );
