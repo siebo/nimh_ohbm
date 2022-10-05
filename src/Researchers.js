@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Chip from '@material-ui/core/Chip';
+import GradeIcon from '@material-ui/icons/Grade';
+import DescriptionIcon from '@material-ui/icons/Description';
 import { useDebounce } from "react-use";
 import { useHistory, Link } from "react-router-dom";
 
@@ -43,6 +46,10 @@ export default function Researchers() {
     [searchString]
   );
 
+  const piList = {
+    maxWidth:'600px'
+  };
+
   return (
     <div className="App">
 
@@ -66,10 +73,18 @@ export default function Researchers() {
           onChange={handleSearch}
         />
 
-      <List>
+      <List style={piList}>
         { researchers.map(researcher => <Link to={`/sharestats/researchers/${researcher.id}`}>
                             <ListItem button>
                               <ListItemText primary={researcher.full_name} />
+                              <Chip
+                                label={researcher.count_total_pubs}
+                                icon={<DescriptionIcon />}
+                              />
+                              <Chip
+                                label={researcher.data_score.toFixed(3)}
+                                icon={<GradeIcon />}
+                              />
                             </ListItem>
                           </Link>)}
       </List>
@@ -77,4 +92,3 @@ export default function Researchers() {
   );
 
 }
-

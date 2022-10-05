@@ -46,6 +46,10 @@ export default function Orgs() {
     [searchString]
   );
 
+  const orgList = {
+    maxWidth:'600px'
+  };
+
   return (
     <div className="App">
 
@@ -69,7 +73,7 @@ export default function Orgs() {
           onChange={handleSearch}
         />
 
-      <List>
+      <List style={orgList}>
         { orgs.map(org => <Link to={`/sharestats/orgs/${org.id}`}>
                             <ListItem button>
                               <ListItemText primary={org.organization_name} />
