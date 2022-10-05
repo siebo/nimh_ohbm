@@ -36,7 +36,7 @@ class CustomTooltip extends React.Component {
 };
 
 
-function GraphRes() {
+function GraphResIRP() {
 
 	const [piData, setPiData] = useState("");
 	const [piDict, setPiDict] = useState({});
@@ -49,7 +49,7 @@ function GraphRes() {
 	const refreshList = () => {
 
 	  axios
-	    .get("https://osaka.o18s.com:9000/personGraph/")
+	    .get("https://osaka.o18s.com:9000/personGraphIRP/")
 	    .then(res => {
 			        setPiData(res.data.results);
 			        const piLookup = {};
@@ -72,23 +72,23 @@ function GraphRes() {
           	variant="outlined"
             onClick={()=> history.push('/sharestats/graphs')}
 	        />
-	          <Chip
-	            label="Researchers"
-	            icon={<AccessibilityIcon />}
-	          />
-            <Chip
-	            label="IRP Researchers"
-	            icon={<AccessibilityIcon />}
-	            variant="outlined"
-	            onClick={()=> history.push('/sharestats/graphs/irp-researchers')}
-	          />
+          <Chip
+            label="Researchers"
+            icon={<AccessibilityIcon />}
+            variant="outlined"
+            onClick={()=> history.push('/sharestats/graphs/researchers')}
+          />
+          <Chip
+            label="IRP Researchers"
+            icon={<AccessibilityIcon />}
+          />
 		  	</Box>
 
-	      <Typography variant="h6">Most data sharing &amp; reuse comes from a small subset of NIMH funded Investigators</Typography>
+	      <Typography variant="h6">Data sharing by IRP Investigators</Typography>
 			  <ScatterChart width={800} height={600} margin={{top: 20, right: 20, bottom: 20, left: 20}}>
 			  	<CartesianGrid strokeDasharray="3 3" />
-			    <XAxis dataKey={'index'} type="number" name='Sorted Investigators' domain={[0,4200]} unit=''>
-			      <Label value="Sorted Investigators (min 3 pubs)" offset={0} position="insideBottom" />
+			    <XAxis dataKey={'index'} type="number" name='Sorted Investigators' domain={[0,30]} unit=''>
+			      <Label value="Sorted Investigators" offset={0} position="insideBottom" />
 			    </XAxis>
 			  	<YAxis dataKey={'data_score'} type="number" name='weight' domain={[0, 1]} unit=''
 			  	       label={{ value: 'Estimated prop of papers with data statements', angle: -90, position: 'insideLeft' }}/>
@@ -102,4 +102,4 @@ function GraphRes() {
 
 }
 
-export default GraphRes;
+export default GraphResIRP;

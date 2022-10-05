@@ -10,6 +10,7 @@ import Researchers from './Researchers';
 import ResearchersIRP from './ResearchersIRP';
 import Graphs from './Graphs';
 import GraphRes from './GraphRes';
+import GraphResIRP from './GraphResIRP';
 import clsx from 'clsx';
 import GoogleBtn from './GoogleBtn';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -162,6 +163,7 @@ function App() {
                   <Route path="/sharestats/orgs/:id?" component={Org} />
                   <Route path="/sharestats/papers/:id?" component={Article} />
                   <Route path="/sharestats/researchers/:id?" component={Researcher} />
+                  <Route exact path="/sharestats/graphs/irp-researchers" component={GraphResIRP} />
                   <Route exact path="/sharestats/graphs/researchers" component={GraphRes} />
                   <Route path="/sharestats/graphs" component={Graphs} />
                   <Route path="/sharestats" component={Welcome} />
