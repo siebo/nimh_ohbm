@@ -4,7 +4,7 @@
 This is a repository for the [ShareStats application](http://nih-fmrif.github.io/sharestats). ShareStats is an effort from the [NIMH IRP's Data Science and Sharing Team](http://cmn.nimh.nih.gov/dsst) to build a database of NIMH-funded papers with data statements.
 
 ## How did you assign these labels?
-The labels are the result of a natural language processing and classification system. We have a [OHBM 2020](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageID=3958&activateFull=true) poster with some details on our method available [here](https://zenodo.org/record/3894807).
+The labels are the result of a natural language processing and classification system. We have a [OHBM 2020](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageID=3958&activateFull=true) poster with some details on our method available [here](https://doi.org/10.5281/zenodo.3894806).
 
 ## What is a data statement?
 A data statement is a reference to a specific instance of data sharing or data reuse. It needs to be specific, with some minimal information about where the data set is posted or downloaded from.
